@@ -17,3 +17,7 @@
 * sonar-coffeelint2java: Converts .coffee rule files (from http://coffeelint.org) into sonarqube checks
 * sonar-coffeelint-checks: Contains all generated rules from the sonar-coffeelint2java
 * sonar-coffeelint-plugin: Sonarqube plugin
+
+
+Recommend running with coffelint installed local project
+add env variable for coffeelint config json as COFFEE_LINT_CONFIG
