@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sonar-coffeelint.iml" filepath="$PROJECT_DIR$/sonar-coffeelint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sonar-coffeelint-checks/sonar-coffeelint-checks.iml" filepath="$PROJECT_DIR$/sonar-coffeelint-checks/sonar-coffeelint-checks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sonar-coffeelint-plugin/sonar-coffeelint-plugin.iml" filepath="$PROJECT_DIR$/sonar-coffeelint-plugin/sonar-coffeelint-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sonar-coffeelint2java/sonar-coffeelint2java.iml" filepath="$PROJECT_DIR$/sonar-coffeelint2java/sonar-coffeelint2java.iml" />
+    </modules>
+  </component>
+</project>

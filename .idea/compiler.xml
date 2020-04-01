@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sonar-coffeelint-checks" />
+        <module name="sonar-coffeelint-plugin" />
+        <module name="sonar-coffeelint2java" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sonar-coffeelint" target="1.5" />
+      <module name="sonar-coffeelint-checks" target="1.8" />
+      <module name="sonar-coffeelint-plugin" target="1.8" />
+      <module name="sonar-coffeelint2java" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
