@@ -20,4 +20,4 @@
 
 
 Recommend running with coffelint installed local project
-add env variable for coffeelint config json as COFFEE_LINT_CONFIG
+add env variable for coffeelint config json as COFFEE_LINT_CONFIG when running the sonar-scanner pointing to your project
