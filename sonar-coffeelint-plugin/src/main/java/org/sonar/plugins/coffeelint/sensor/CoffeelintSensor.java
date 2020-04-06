@@ -1,23 +1,18 @@
 package org.sonar.plugins.coffeelint.sensor;
 
-import com.google.common.base.Preconditions;
 import org.sonar.api.batch.fs.FilePredicate;
 import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.fs.InputPath;
 import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.batch.sensor.issue.NewIssue;
 import org.sonar.api.batch.sensor.issue.NewIssueLocation;
 import org.sonar.api.component.ResourcePerspectives;
-import org.sonar.api.issue.Issue;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.plugins.coffeelint.language.Coffee;
 import org.sonar.plugins.coffeelint.model.CoffeelintViolation;
 import org.sonar.plugins.coffeelint.sensor.CoffeelintAnalyser.CoffeeOutputHandler;
-
-import java.util.List;
 
 /**
  * {@link Sensor} to analyse <i>coffee</i> files via http://www.coffeelint.org
@@ -62,13 +57,15 @@ public class CoffeelintSensor implements Sensor {
     }
 
     private void processIssues(InputFile file, CoffeelintViolation violation) {
-        violation.getViolations().stream().forEach(v->{
-            saveIssue(file,v.getLineNumber(), v.getRule(), v.getMessage());
-        });
+        if (violation.getViolations() != null) {
+            violation.getViolations().stream().forEach(v -> {
+                saveIssue(file, v.getLineNumber(), v.getRule(), v.getMessage());
+            });
+        }
     }
 
     private void saveIssue(final InputFile inputFile, int line, final String externalRuleKey, final String message) {
-        RuleKey ruleKey = RuleKey.of(getRepositoryKeyForLanguage(inputFile.language()), externalRuleKey);
+        RuleKey ruleKey = RuleKey.of(Coffee.KEY, externalRuleKey);
 
         NewIssue newIssue = context.newIssue()
                 .forRule(ruleKey);
@@ -82,9 +79,5 @@ public class CoffeelintSensor implements Sensor {
         newIssue.at(primaryLocation);
 
         newIssue.save();
-    }
-
-    private static String getRepositoryKeyForLanguage(String languageKey) {
-        return languageKey.toLowerCase() + "-" + Coffee.KEY;
     }
 }
